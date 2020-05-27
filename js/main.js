@@ -293,7 +293,7 @@
     timerLabel.textContent=`${timeLeft.toFixed(2)}`;
     timeoutId=setTimeout(updateTimer,10);
     if(timeLeft<0){
-        isPlaying="false";
+        isPlaying=false;
         clearTimeout(timeoutId);
         $('.info').hide();
         $('#restart').hide();
@@ -347,7 +347,7 @@
       return;
     }
     shuffle();
-    isPlaying="false";
+    isPlaying=false;
     clearTimeout(timeoutId);
     countDownStartTime=Date.now();
     countDown();
