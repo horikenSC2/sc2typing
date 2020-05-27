@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Typing Game</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+  <h1 id="target">SC2 Typing Game</h1>
+  <div class="info">
+    <p>Score:<count:span id="score">0</count:span></p>
+    <p>Miss:<count:span id="miss">0</count:span></p>
+    <p>Time Left:<count:span id="timer">0</count:span></p>
+  </div>
+  <!-- <p><img id="btn" src="img/play.png"></p> -->
+  <p id="btn">Click to Play</p>
+  <p id="restart">Click to Restart</p>
+
+  
+  <div id="modal-wrapper">
+    <div id="result-wrapper">
+      <div>
+        <i class="fa fa-3x fa-times" id="close-modal"></i>
+      </div>
+      <div id="main-result">
+        <p id="gg">GG WP</p>
+        <p>Score：<count:span id="finalscore">0</count:span>
+        Miss：<count:span id="finalmiss">0</count:span></p>
+        <p id="rank"></p>
+        <div>
+          <img src="" id="rankpicture">
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>
