@@ -270,7 +270,7 @@
       rankpicture.src="img/bronze.png"
     }else if(50<=point&&point<78){
       rankLabel.textContent="You are Silver Typer";
-      rankpicture.src="img/silver.png"
+      rankpicture.src="img/silver2.png"
     }else if(78<=point&&point<106){
       rankLabel.textContent="You are Gold Typer";
       rankpicture.src="img/gold.png"
