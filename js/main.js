@@ -208,7 +208,7 @@
   "battery overcharge",
   ]
 
-  shuffle();
+  
   
   const target=document.getElementById('target');
   const scoreLabel=document.getElementById('score');
@@ -328,6 +328,7 @@
     if(isCountdowning===true){
       return;
     }
+    shuffle();
     countDownStartTime=Date.now();
     countDown();
     isCountdowning=true;
