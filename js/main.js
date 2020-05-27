@@ -120,7 +120,7 @@
   "reactor",
   "stimpack",
   "combat shield",
-  "concussive Shells",
+  "concussive shells",
   "kd8 charge",
   "combat drugs",
   "jet pack",
