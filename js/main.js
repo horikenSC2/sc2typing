@@ -346,6 +346,7 @@
     if(isPlaying!==true){
       return;
     }
+    shuffle();
     isPlaying="false";
     clearTimeout(timeoutId);
     countDownStartTime=Date.now();
