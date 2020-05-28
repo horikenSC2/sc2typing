@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <title>SC2 Typing</title>
+  <title>Typing Game</title>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
   </div>
   <!-- <p><img id="btn" src="img/play.png"></p> -->
   <p id="btn">Click to Play</p>
-  <p id="restart">Click to Restart</p>
+  <p id="restart">Press Esc to restart</p>
 
   
   <div id="modal-wrapper">
@@ -28,11 +28,13 @@
       <div id="main-result">
         <p id="gg">GG WP</p>
         <p>Score：<count:span id="finalscore">0</count:span>
-        Miss：<count:span id="finalmiss">0</count:span></p>
+        Miss：<count:span id="finalmiss">0</count:span>
+        Point：<count:span id="finalpoint">0</count:span></p>
         <p id="rank"></p>
         <div>
           <img src="" id="rankpicture">
         </div>
+        <p id="tonextrank"></p>
       </div>
     </div>
   </div>
