@@ -6,8 +6,8 @@ body{
 }
 
 #target{
-  font-size:50px;
-  letter-spacing: 3px;;
+  font-size:30px;
+  letter-spacing: 1px;;
 }
 
 #btn{
@@ -34,9 +34,10 @@ body{
 }
 
 .info{
+  padding-top:10px;
   color:#bbb;
   display:none;
-  font-size:15px;
+  font-size:12px;
 }
 
 
@@ -91,8 +92,11 @@ body{
 #restart{
   color:#bbb;
   display:none;
-  cursor: pointer;
   margin-top:20px;
   padding:10px;
-  font-size:15px;
+  font-size:12px;
+}
+
+#tonextrank{
+  padding-top:10px;
 }
