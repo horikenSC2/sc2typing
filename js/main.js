@@ -23,7 +23,6 @@
   "carrier",
   "interceptor",
   "mothership",
-  "mothership core",
   "nexus",
   "pylon",
   "assimilator",
@@ -131,7 +130,7 @@
   "personal cloaking",
   "enhanced shockwave",
   "infernal pre-igniter",
-  "smart sarvos",
+  "smart servos",
   "drilling claws",
   "mag-field accelerator",
   "lock on",
@@ -166,7 +165,7 @@
   "chitinous plating",
   "anabolic synthesis",
   "mutate ventral sacs",
-  "pneumatized carapase",
+  "pneumatized carapace",
   "contaminate",
   "oversight",
   "tissue regeneration",
@@ -174,7 +173,7 @@
   "consume",
   "abduct",
   "blinding cloud",
-  "parastic bomb",
+  "parasitic bomb",
   "swarm seeds",
   "charge",
   "blink",
@@ -206,24 +205,61 @@
   "chrono boost",
   "strategic recall",
   "battery overcharge",
+  "serral",
+  "reynor",
+  "neeb",
+  "special",
+  "time",
+  "heromarine",
+  "elazer",
+  "showtime",
+  "scarlett",
+  "uthermal",
+  "harstem",
+  "kelazhur",
+  "stephano",
+  "dark",
+  "trap",
+  "classic",
+  "maru",
+  "soo",
+  "rogue",
+  "hero",
+  "stats",
+  "ty",
+  "dear",
+  "gumiho",
+  "ragnarok",
+  "parting",
+  "hurricane",
+  "zest",
+  "innovation",
+  "sos",
+  "cure",
+  "solar",
+  "artosis",
+  "tastelss",
+  "incontrol",
+  "totalbiscuit"
   ]
 
-  
-  
   const target=document.getElementById('target');
   const scoreLabel=document.getElementById('score');
   const finalscoreLabel=document.getElementById('finalscore');
   const missLabel=document.getElementById('miss');
   const finalmissLabel=document.getElementById('finalmiss');
+  const finalpointLabel=document.getElementById('finalpoint');
   const timerLabel=document.getElementById('timer');
   const btn=document.getElementById('btn');
   const rankLabel=document.getElementById('rank');
-  const rankpicture=document.getElementById('rankpicture')
-  const restart=document.getElementById('restart')
+  const rankpicture=document.getElementById('rankpicture');
+  const tonextrank=document.getElementById('tonextrank');
+
   let word;
   let loc;
   let score;
   let miss;
+  let point;
   let number=0;
   let startTime;
   let countDownStartTime;
@@ -257,33 +293,39 @@
   function showResult(){
     finalmissLabel.textContent=miss;
     finalscoreLabel.textContent=score;
+    point=score-miss;
+    finalpointLabel.textContent=point
     placement();
     $('#modal-wrapper').fadeIn(500);
     console.log(isPlaying);
   }
 
   function placement(){
-    let point=score-miss;
-    console.log(point);
     if(point<50){
       rankLabel.textContent="You are Bronze Typer";
       rankpicture.src="img/bronze.png"
-    }else if(50<=point&&point<78){
+      tonextrank.textContent=`${50-point} point to Silver`
+    }else if(50<=point&&point<77){
       rankLabel.textContent="You are Silver Typer";
       rankpicture.src="img/silver2.png"
-    }else if(78<=point&&point<106){
+      tonextrank.textContent=`${77-point} point to Gold`
+    }else if(77<=point&&point<105){
       rankLabel.textContent="You are Gold Typer";
       rankpicture.src="img/gold.png"
-    }else if(106<=point&&point<134){
+      tonextrank.textContent=`${105-point} point to Platinum`
+    }else if(105<=point&&point<133){
       rankLabel.textContent="You are Platinum Typer";
       rankpicture.src="img/platinum.png"
-    }else if(134<=point&&point<162){
+      tonextrank.textContent=`${133-point} point to Diamond`
+    }else if(133<=point&&point<161){
       rankLabel.textContent="You are Diamond Typer";
       rankpicture.src="img/diamond.png"
-    }else if(162<=point&&point<190){
+      tonextrank.textContent=`${161-point} point to Master`
+    }else if(161<=point&&point<185){
       rankLabel.textContent="You are Master Typer";
       rankpicture.src="img/master.png"
-    }else if(190<=point){
+      tonextrank.textContent=`${185-point} point to Grandmaster`
+    }else if(185<=point){
       rankLabel.textContent="You are Grandmaster Typer";
       rankpicture.src="img/gm.png"
     }
@@ -307,6 +349,7 @@
     loc=0;
     score=0;
     miss=0;
+    number=0;
     timerLabel.textContent="30.00"
     scoreLabel.textContent=score;
     missLabel.textContent=miss;
@@ -338,31 +381,13 @@
       isPlaying=true;
       startTime=Date.now();
       updateTimer();
-      $('#restart').css('display','inline-block');
-    },3000)
-  });
-
-  restart.addEventListener('click',()=>{
-    if(isPlaying!==true){
-      return;
-    }
-    shuffle();
-    isPlaying=false;
-    clearTimeout(timeoutId);
-    countDownStartTime=Date.now();
-    countDown();
-    isCountdowning=true;
-    $('#btn').hide();
-    $('.info').fadeIn();
-    setTimeout(()=>{
-      isPlaying=true;
-      startTime=Date.now();
-      updateTimer();
+      $('#restart').show();
     },3000)
   });
 
   window.addEventListener('keydown',e=>{
-    if(isPlaying!==true){
+    console.log(e.key)
+    if(isPlaying===false){
       return;
     }
     if(word[loc]===e.key){
@@ -381,7 +406,28 @@
       missLabel.textContent=miss;
     }
   });
-
-
+  
+  window.addEventListener('keydown',e=>{
+    if(isPlaying===false){
+      return;
+    }
+    if(e.key==='Escape'){
+      shuffle();
+      isPlaying=false;
+      clearTimeout(timeoutId);
+      countDownStartTime=Date.now();
+      countDown();
+      isCountdowning=true;
+      $('#btn').hide();
+      $('#restart').hide();
+      $('.info').fadeIn();
+      setTimeout(()=>{
+        isPlaying=true;
+        startTime=Date.now();
+        updateTimer();
+        $('#restart').show();
+      },3000)
+    }
+  });
 
 }
