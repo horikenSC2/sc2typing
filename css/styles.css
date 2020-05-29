@@ -11,26 +11,21 @@ body{
 }
 
 #btn{
+  
   font-size:20px;
-  width:300px;
   margin:50px auto;
-  background-color:rgb(248, 172, 9);
   padding:10px;
-  cursor: pointer;
   border-radius: 5px;
   user-select:none;
-  box-shadow:0 5px rgb(190, 131, 3);
 }
 
-#btn:active{
-  position:relative;
-  top:5px;
-  box-shadow:none;
+.enter{
+  color:rgb(241, 133, 10);
 }
 
-#btn{
-  cursor: pointer;
-  margin-top:100px;
+#enter{
+  font-size:20px;
+  padding-top:30px;
 }
 
 .info{
@@ -52,7 +47,7 @@ body{
   padding: 20px 0 40px;
   border-radius: 10px;
   width: 700px;
-  height: 700px;
+  height: 730px;
   text-align: center;
 }
 
@@ -85,7 +80,7 @@ body{
 }
 
 #gg{
-  font-size:40px;
+  font-size:30px;
   font-weight:bold;
 }
 
