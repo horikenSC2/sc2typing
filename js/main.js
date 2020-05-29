@@ -240,7 +240,7 @@
   "artosis",
   "tastelss",
   "incontrol",
-  "totalbiscuit"
+  "totalbiscuit",
   ]
 
   const target=document.getElementById('target');
@@ -341,6 +341,7 @@
         $('#restart').hide();
         target.textContent="Play Again?"
         $('#btn').show();
+        $('#btn').html('Press <span class="enter">Enter</span> to Replay');
         showResult();
       }
   }
@@ -364,26 +365,50 @@
     }
   }
   
-  btn.addEventListener('click',()=>{
+  window.addEventListener('keydown',e=>{
     if(isPlaying===true){
       return;
     }
     if(isCountdowning===true){
       return;
     }
-    shuffle();
-    countDownStartTime=Date.now();
-    countDown();
-    isCountdowning=true;
-    $('#btn').hide();
-    $('.info').fadeIn();
-    setTimeout(()=>{
-      isPlaying=true;
-      startTime=Date.now();
-      updateTimer();
-      $('#restart').show();
-    },3000)
+    if(e.key==="Enter"){
+      $('#modal-wrapper').fadeOut();
+      shuffle();
+      countDownStartTime=Date.now();
+      countDown();
+      isCountdowning=true;
+      $('#btn').hide();
+      $('.info').fadeIn();
+      setTimeout(()=>{
+        isPlaying=true;
+        startTime=Date.now();
+        updateTimer();
+        $('#restart').show();
+      },3000)
+    }
   });
+
+  // btn.addEventListener('click',()=>{
+  //   if(isPlaying===true){
+  //     return;
+  //   }
+  //   if(isCountdowning===true){
+  //     return;
+  //   }
+  //   shuffle();
+  //   countDownStartTime=Date.now();
+  //   countDown();
+  //   isCountdowning=true;
+  //   $('#btn').hide();
+  //   $('.info').fadeIn();
+  //   setTimeout(()=>{
+  //     isPlaying=true;
+  //     startTime=Date.now();
+  //     updateTimer();
+  //     $('#restart').show();
+  //   },3000)
+  // });
 
   window.addEventListener('keydown',e=>{
     console.log(e.key)
